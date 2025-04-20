@@ -1,0 +1,125 @@
+<style>
+  .form-wrapper {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .form-wrapper h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border 0.3s;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #3f51b5;
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3f51b5;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #303f9f;
+  }
+</style>
+
+<div class="form-wrapper">
+  <h2>Submit Excel Form</h2>
+  <form (ngSubmit)="onSubmit()" #formRef="ngForm">
+    <div class="form-group">
+      <label>Date Opened:</label>
+      <input type="date" [(ngModel)]="formData.dateOpened" name="dateOpened" required />
+    </div>
+
+    <div class="form-group">
+      <label>File Name:</label>
+      <input type="text" [(ngModel)]="formData.fileName" name="fileName" required />
+    </div>
+
+    <div class="form-group">
+      <label>Work Effort:</label>
+      <input type="text" [(ngModel)]="formData.workEffort" name="workEffort" />
+    </div>
+
+    <div class="form-group">
+      <label>Reviewer Name:</label>
+      <input type="text" [(ngModel)]="formData.reviewerName" name="reviewerName" />
+    </div>
+
+    <div class="form-group">
+      <label>Line Code Number:</label>
+      <input type="text" [(ngModel)]="formData.lineCodeNumber" name="lineCodeNumber" />
+    </div>
+
+    <div class="form-group">
+      <label>Complexity:</label>
+      <select [(ngModel)]="formData.complexity" name="complexity">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Comment:</label>
+      <textarea rows="3" [(ngModel)]="formData.comment" name="comment"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Action Taken:</label>
+      <textarea rows="3" [(ngModel)]="formData.actionTaken" name="actionTaken"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Last Date Updated:</label>
+      <input type="date" [(ngModel)]="formData.lastDateUpdated" name="lastDateUpdated" />
+    </div>
+
+    <div class="form-group">
+      <label>Developer Name:</label>
+      <input type="text" [(ngModel)]="formData.developerName" name="developerName" />
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
